@@ -28,6 +28,11 @@ Calculating your capital gains and tracking your adjusted cost base (ACB) manual
     - Shares with the same ticker were bought in the 61 day window (30 days before or 30 days after the sale)
     - There is a non-zero balance of shares sharing the same ticker at the end of the 61 day window
 - Support fractional quantities of shares
+- **Import transaction data** from external sources:
+  - Schwab Equity Awards Center (EAC) JSON exports
+  - TD Direct Investing trade confirmation PDFs
+  - TD Direct Investing monthly statements
+  - Norbert's Gambit journal transaction support (DLR/DLR.U)
 
 ## Commission Handling and Calculations
 ### Commission Handling
@@ -141,19 +146,19 @@ pip install cad-capgains
 ```
 
 ## Try it with Sample Data
-The package includes comprehensive sample datasets in both CSV (`tests/sample.csv`) and JSON (`tests/sample.json`) formats that you can use to try out the tool. After installation, you can run:
+The package includes comprehensive sample datasets in both CSV (`tests/sample_data/sample.csv`) and JSON (`tests/sample_data/sample.json`) formats that you can use to try out the tool. After installation, you can run:
 ```bash
 # Show all transactions (using CSV)
-capgains show tests/sample.csv
+capgains show tests/sample_data/sample.csv
 
 # Show specific stock transactions (using JSON)
-capgains show tests/sample.json -t AAPL
+capgains show tests/sample_data/sample.json -t AAPL
 
 # Calculate capital gains for 2023
-capgains calc tests/sample.csv 2023
+capgains calc tests/sample_data/sample.csv 2023
 
 # Check maximum cost for T1135 reporting
-capgains maxcost tests/sample.json 2023
+capgains maxcost tests/sample_data/sample.json 2023
 ```
 
 The sample data includes:
@@ -180,7 +185,7 @@ The setup script will:
 
 To run the tool during development, use the provided script:
 ```bash
-./scripts/capgains calc tests/sample.csv 2023
+./scripts/capgains calc tests/sample_data/sample.csv 2023
 ```
 
 # Input File Requirements
@@ -231,7 +236,7 @@ dating from May 1, 2007 and onwards.**
 # Usage
 To show the transaction file in a nice tabular format you can run:
 ```bash
-$ capgains show tests/sample.csv
+$ capgains show tests/sample_data/sample.csv
 +------------+--------------------+----------+----------+-------+----------+--------------+------------+
 | date       | description        | ticker   | action   |   qty |    price |   commission |   currency |
 |------------+--------------------+----------+----------+-------+----------+--------------+------------|
@@ -243,7 +248,7 @@ $ capgains show tests/sample.csv
 
 You can also output the results in JSON format:
 ```bash
-$ capgains show tests/sample.csv --format json
+$ capgains show tests/sample_data/sample.csv --format json
 {
   "transactions": [
     {
@@ -260,6 +265,62 @@ $ capgains show tests/sample.csv --format json
   ]
 }
 ```
+
+## Importing Transaction Data
+
+The tool includes converters to import transaction data from various brokerage formats into the cad-capital-gains format.
+
+### Schwab Equity Awards Center (EAC)
+
+Convert transaction history exported from Schwab's Equity Awards Center:
+
+```bash
+# Convert all transactions
+$ capgains convert schwab-eac schwab_export.json output.json
+
+# Filter by specific tickers
+$ capgains convert schwab-eac schwab_export.json output.json -t AAPL -t GOOGL
+```
+
+The converter handles:
+- ESPP purchases (using Purchase Fair Market Value)
+- RSU vests (using Vest Fair Market Value)
+- Share sales (using Sale Price)
+- Automatic filtering of non-capital-gains events (dividends, tax withholding)
+
+### TD Direct Investing
+
+Convert transaction data from TD Direct Investing PDFs:
+
+```bash
+# Convert from trade confirmation PDFs
+$ capgains convert td-trades-pdf confirmation.pdf output.json
+
+# Convert from monthly statements and confirmations (recommended)
+$ capgains convert td-statements-pdf ./statements/ ./confirmations/ output.json
+```
+
+The `td-statements-pdf` converter is recommended as it:
+- Cross-validates data between statements and confirmations
+- Automatically deduplicates transactions
+- Supports Norbert's Gambit journal transfers (DLR.U ↔ DLR)
+
+### Norbert's Gambit
+
+For currency exchange using DLR/DLR.U ETF pairs, the tool supports special journal actions:
+
+```bash
+# Combine separate USD and CAD transaction files
+$ capgains convert norberts-gambit usd_buys.json cad_sells.json output.json
+```
+
+The calculator correctly handles the JOURNAL_IN/JOURNAL_OUT sequence:
+1. **BUY**: Purchase DLR.U in USD account
+2. **JOURNAL_OUT**: Transfer shares out of USD account
+3. **JOURNAL_IN**: Receive shares in CAD account as DLR
+4. **SELL**: Sell DLR in CAD
+
+Journal transactions preserve the adjusted cost base through the transfer without triggering capital gains.
 
 # Finding issues
 If you find issues using this tool, please create an Issue using the [Github issue tracker](https://github.com/EmilMaric/cad-capital-gains/issues) and one of us will try to fix it.

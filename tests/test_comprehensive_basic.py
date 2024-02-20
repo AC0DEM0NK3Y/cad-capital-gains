@@ -67,7 +67,7 @@ def test_regular_gains_and_losses(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_basic.csv'),
+            os.path.join('tests', 'sample_data', 'comprehensive_basic.csv'),
             '2022',
             '-t',
             'AAPL',
@@ -142,7 +142,7 @@ def test_partial_share_transactions(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_basic.csv'),
+            os.path.join('tests', 'sample_data', 'comprehensive_basic.csv'),
             '2022',
             '-t',
             'VFV.TO',
@@ -194,7 +194,7 @@ def test_complete_sale_loss(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_basic.csv'),
+            os.path.join('tests', 'sample_data', 'comprehensive_basic.csv'),
             '2022',
             '-t',
             'TD.TO',
@@ -244,7 +244,7 @@ def test_mixed_currency_transactions(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_basic.csv'),
+            os.path.join('tests', 'sample_data', 'comprehensive_basic.csv'),
             '2023',
             '-t',
             'META',
@@ -319,7 +319,7 @@ def test_regular_cad_transactions(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_basic.csv'),
+            os.path.join('tests', 'sample_data', 'comprehensive_basic.csv'),
             '2023',
             '-t',
             'XIU.TO',

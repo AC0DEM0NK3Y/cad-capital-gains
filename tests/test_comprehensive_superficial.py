@@ -63,7 +63,9 @@ def test_superficial_loss_with_prior_purchase(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_superficial.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_superficial.csv'
+            ),
             '2022',
             '-t',
             'MSFT',
@@ -96,7 +98,9 @@ def test_superficial_loss_with_subsequent_purchase(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_superficial.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_superficial.csv'
+            ),
             '2022',
             '-t',
             'GOOGL',
@@ -129,7 +133,9 @@ def test_superficial_loss_edge_case(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_superficial.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_superficial.csv'
+            ),
             '2024',
             '-t',
             'EDGE',
@@ -161,7 +167,9 @@ def test_loss_just_outside_window(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_superficial.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_superficial.csv'
+            ),
             '2024',
             '-t',
             'OUTSIDE',
@@ -197,7 +205,9 @@ def test_multiple_purchases_in_window(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_superficial.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_superficial.csv'
+            ),
             '2024',
             '-t',
             'MULTI',
@@ -229,7 +239,9 @@ def test_zero_balance_at_window_end(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_superficial.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_superficial.csv'
+            ),
             '2024',
             '-t',
             'ZERO',
@@ -267,7 +279,9 @@ def test_different_ticker_in_window(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_superficial.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_superficial.csv'
+            ),
             '2024',
             '-t',
             'DIFF',

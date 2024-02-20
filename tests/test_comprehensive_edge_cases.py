@@ -19,7 +19,9 @@ def test_overlapping_loss_windows(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_edge_cases.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_edge_cases.csv'
+            ),
             '2024',
             '-t',
             'OVERLAP',
@@ -66,7 +68,9 @@ def test_invalid_transaction_protection(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_edge_cases.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_edge_cases.csv'
+            ),
             '2024',
             '-t',
             'PROTECT',
@@ -91,7 +95,9 @@ def test_natural_zero_balance(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_edge_cases.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_edge_cases.csv'
+            ),
             '2024',
             '-t',
             'EXACT',
@@ -152,7 +158,9 @@ def test_window_boundary_trades(requests_mock):
         capgains,
         [
             'calc',
-            os.path.join('tests', 'comprehensive_edge_cases.csv'),
+            os.path.join(
+                'tests', 'sample_data', 'comprehensive_edge_cases.csv'
+            ),
             '2024',
             '-t',
             'WINDOW',

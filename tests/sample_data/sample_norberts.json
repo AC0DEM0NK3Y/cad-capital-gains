@@ -1,0 +1,302 @@
+[
+  {
+    "date": "2024-03-11",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 47,
+    "price": 10.15,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2024-03-11",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 4760,
+    "price": 10.15,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2024-03-11",
+    "ticker": "DLR",
+    "action": "JOURNAL_IN",
+    "qty": 4807,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "CAD",
+    "description": "TD Journal (IN) - DLR"
+  },
+  {
+    "date": "2024-03-11",
+    "ticker": "DLR",
+    "action": "JOURNAL_OUT",
+    "qty": 4807,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "USD",
+    "description": "TD Journal (OUT) - DLR.U"
+  },
+  {
+    "date": "2024-03-12",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 47,
+    "price": 13.71,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2024-03-12",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 4760,
+    "price": 13.71,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2024-04-25",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 47,
+    "price": 10.14,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2024-04-25",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 28935,
+    "price": 10.14,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2024-04-25",
+    "ticker": "DLR",
+    "action": "JOURNAL_IN",
+    "qty": 28981,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "CAD",
+    "description": "TD Journal (IN) - DLR"
+  },
+  {
+    "date": "2024-04-25",
+    "ticker": "DLR",
+    "action": "JOURNAL_OUT",
+    "qty": 28981,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "USD",
+    "description": "TD Journal (OUT) - DLR.U"
+  },
+  {
+    "date": "2024-04-29",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 47,
+    "price": 10.14,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2024-04-29",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 28935,
+    "price": 10.14,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2024-04-29",
+    "ticker": "DLR",
+    "action": "JOURNAL_IN",
+    "qty": 28981,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "CAD",
+    "description": "TD Journal (IN) - DLR"
+  },
+  {
+    "date": "2024-04-29",
+    "ticker": "DLR",
+    "action": "JOURNAL_OUT",
+    "qty": 28981,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "USD",
+    "description": "TD Journal (OUT) - DLR.U"
+  },
+  {
+    "date": "2024-04-29",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 47,
+    "price": 13.96,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2024-04-29",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 28935,
+    "price": 13.96,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2024-05-01",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 47,
+    "price": 14.0,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2024-05-01",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 28935,
+    "price": 14.005,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2024-12-19",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 37335,
+    "price": 10.23,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2024-12-24",
+    "ticker": "DLR",
+    "action": "JOURNAL_IN",
+    "qty": 18667,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "CAD",
+    "description": "TD Journal (IN) - DLR"
+  },
+  {
+    "date": "2024-12-24",
+    "ticker": "DLR",
+    "action": "JOURNAL_OUT",
+    "qty": 18667,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "USD",
+    "description": "TD Journal (OUT) - DLR.U"
+  },
+  {
+    "date": "2024-12-25",
+    "ticker": "DLR",
+    "action": "JOURNAL_IN",
+    "qty": 18667,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "CAD",
+    "description": "TD Journal (IN) - DLR"
+  },
+  {
+    "date": "2024-12-25",
+    "ticker": "DLR",
+    "action": "JOURNAL_OUT",
+    "qty": 18667,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "USD",
+    "description": "TD Journal (OUT) - DLR.U"
+  },
+  {
+    "date": "2024-12-26",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 18667,
+    "price": 14.48,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2025-01-02",
+    "ticker": "DLR",
+    "action": "BUY",
+    "qty": 46669,
+    "price": 10.24,
+    "commission": 7.99,
+    "currency": "USD",
+    "description": "TD Trade - DLR.U"
+  },
+  {
+    "date": "2025-01-02",
+    "ticker": "DLR",
+    "action": "JOURNAL_IN",
+    "qty": 23334,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "CAD",
+    "description": "TD Journal (IN) - DLR"
+  },
+  {
+    "date": "2025-01-02",
+    "ticker": "DLR",
+    "action": "JOURNAL_OUT",
+    "qty": 23334,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "USD",
+    "description": "TD Journal (OUT) - DLR.U"
+  },
+  {
+    "date": "2025-01-02",
+    "ticker": "DLR",
+    "action": "SELL",
+    "qty": 18667,
+    "price": 14.76,
+    "commission": 9.99,
+    "currency": "CAD",
+    "description": "TD Trade - DLR"
+  },
+  {
+    "date": "2025-01-10",
+    "ticker": "DLR",
+    "action": "JOURNAL_IN",
+    "qty": 23334,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "CAD",
+    "description": "TD Journal (IN) - DLR"
+  },
+  {
+    "date": "2025-01-10",
+    "ticker": "DLR",
+    "action": "JOURNAL_OUT",
+    "qty": 23334,
+    "price": 0.0,
+    "commission": 0.0,
+    "currency": "USD",
+    "description": "TD Journal (OUT) - DLR.U"
+  }
+]
