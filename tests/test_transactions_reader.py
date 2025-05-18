@@ -897,14 +897,7 @@ def test_year_tracking():
     """Test that year_min and year_max are correctly tracked."""
     transactions = [
         Transaction(
-            date(2018, 1, 1),
-            'First',
-            'AAPL',
-            'BUY',
-            100,
-            50.00,
-            0.00,
-            'USD'
+            date(2018, 1, 1), 'First', 'AAPL', 'BUY', 100, 50.00, 0.00, 'USD'
         ),
         Transaction(
             date(2017, 6, 1),  # Earlier year
