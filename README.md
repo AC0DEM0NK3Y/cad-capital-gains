@@ -103,11 +103,11 @@ You must file a T1135 if:
 This tool provides the `maxcost` command to help with T1135 reporting. To calculate the maximum cost of your foreign securities for T1135 reporting:
 
 ```bash
-$ capgains maxcost tests/sample.csv 2023
+$ capgains maxcost tests/sample_data/sample.csv 2023
 ```
 or
 ```bash
-$ capgains maxcost tests/sample.json 2023
+$ capgains maxcost tests/sample_data/sample.json 2023
 ```
 
 
@@ -126,19 +126,19 @@ pip install cad-capgains
 ```
 
 ## Try it with Sample Data
-The package includes comprehensive sample datasets in both CSV (`tests/sample.csv`) and JSON (`tests/sample.json`) formats that you can use to try out the tool. After installation, you can run:
+The package includes comprehensive sample datasets in both CSV (`tests/sample_data/sample.csv`) and JSON (`tests/sample_data/sample.json`) formats that you can use to try out the tool. After installation, you can run:
 ```bash
 # Show all transactions (using CSV)
-capgains show tests/sample.csv
+capgains show tests/sample_data/sample.csv
 
 # Show specific stock transactions (using JSON)
-capgains show tests/sample.json -t AAPL
+capgains show tests/sample_data/sample.json -t AAPL
 
 # Calculate capital gains for 2023
-capgains calc tests/sample.csv 2023
+capgains calc tests/sample_data/sample.csv 2023
 
 # Check maximum cost for T1135 reporting
-capgains maxcost tests/sample.json 2023
+capgains maxcost tests/sample_data/sample.json 2023
 ```
 
 The sample data includes:
@@ -165,7 +165,7 @@ The setup script will:
 
 To run the tool during development, use the provided script:
 ```bash
-./scripts/capgains calc tests/sample.csv 2023
+./scripts/capgains calc tests/sample_data/sample.csv 2023
 ```
 
 # Input File Requirements
@@ -216,7 +216,7 @@ dating from May 1, 2007 and onwards.**
 # Usage
 To show the transaction file in a nice tabular format you can run:
 ```bash
-$ capgains show tests/sample.csv
+$ capgains show tests/sample_data/sample.csv
 +------------+--------------------+----------+----------+-------+----------+--------------+------------+
 | date       | description        | ticker   | action   |   qty |    price |   commission |   currency |
 |------------+--------------------+----------+----------+-------+----------+--------------+------------|
@@ -228,7 +228,7 @@ $ capgains show tests/sample.csv
 
 You can also output the results in JSON format:
 ```bash
-$ capgains show tests/sample.csv --format json
+$ capgains show tests/sample_data/sample.csv --format json
 {
   "transactions": [
     {
