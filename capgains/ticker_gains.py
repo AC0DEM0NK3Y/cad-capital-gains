@@ -30,6 +30,10 @@ class TickerGains:
 
     def _is_superficial_loss(self, transaction, transactions):
         """Figures out if the transaction is a superficial loss."""
+        # Skip JOURNAL transactions as they can't have superficial losses
+        if 'JOURNAL' in transaction.action:
+            return False
+        
         # Has to be a capital loss
         if (transaction.capital_gain >= 0):
             return False
@@ -51,12 +55,34 @@ class TickerGains:
         for window_transaction in filtered_transactions[transaction_idx + 1:]:
             if window_transaction.action == 'SELL':
                 balance -= window_transaction.qty
-            else:
+            elif window_transaction.action == 'BUY':
                 balance += window_transaction.qty
+            elif window_transaction.action == 'JOURNAL_IN':
+                balance += window_transaction.qty
+            elif window_transaction.action == 'JOURNAL_OUT':
+                balance -= window_transaction.qty
         return balance > 0
 
     def _add_transaction(self, transaction):
         """Adds a transaction and updates the calculated values."""
+        # Handle JOURNAL transactions as administrative events that preserve ACB
+        if 'JOURNAL' in transaction.action:
+            # For JOURNAL transactions, we update the share balance but preserve ACB
+            # This properly handles Norbert's Gambit where DLR.U is converted to DLR
+            # Direction matters: JOURNAL_IN adds to share balance, JOURNAL_OUT reduces it
+            if transaction.action == 'JOURNAL_IN':
+                self._share_balance += transaction.qty
+            elif transaction.action == 'JOURNAL_OUT':
+                self._share_balance -= transaction.qty
+            
+            # Set transaction fields - no proceeds or capital gain on journal entries
+            transaction.proceeds = Decimal('0.0')
+            transaction.capital_gain = Decimal('0.0')
+            transaction.acb = Decimal('0.0')  # No change to ACB for the individual entry
+            transaction.share_balance = self._share_balance
+            transaction.cumulative_cost = self._total_acb
+            return
+
         if self._share_balance == 0:
             # to prevent divide by 0 error
             old_acb_per_share = 0
