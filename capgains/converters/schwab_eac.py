@@ -72,7 +72,38 @@ def convert_schwab_transaction(tx, tickers=None):
                 fair_market_value = details['PurchaseFairMarketValue']
                 if fair_market_value:
                     price = convert_schwab_amount(fair_market_value)
-                    break
+
+                # Validate TaxWithholdingMethod state and determine
+                # net shares
+                withholding = details.get('TaxWithholdingMethod')
+                net_shares = details.get('NetSharesDeposited')
+
+                if withholding == 'Withhold for Taxes':
+                    # New format: shares withheld for taxes, must have
+                    # NetSharesDeposited
+                    if not net_shares:
+                        raise ValueError(
+                            f"ESPP on {tx['Date']}: "
+                            "TaxWithholdingMethod is 'Withhold for "
+                            "Taxes' but NetSharesDeposited is missing"
+                        )
+                    quantity = Decimal(net_shares)
+                elif withholding is None or withholding == '':
+                    # Old format: no withholding, Quantity is already
+                    # the net deposited amount
+                    if net_shares and Decimal(net_shares) != quantity:
+                        raise ValueError(
+                            f"ESPP on {tx['Date']}: "
+                            "TaxWithholdingMethod is null but "
+                            f"NetSharesDeposited ({net_shares}) "
+                            f"differs from Quantity ({quantity})"
+                        )
+                else:
+                    raise ValueError(
+                        f"ESPP on {tx['Date']}: unexpected "
+                        f"TaxWithholdingMethod: '{withholding}'"
+                    )
+                break
 
             # For RSU deposits
             elif 'VestFairMarketValue' in details:
